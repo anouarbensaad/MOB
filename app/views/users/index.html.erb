@@ -1,0 +1,18 @@
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Utilisateurs</h1>
+<div class="row" >
+  <%= will_paginate :previous_label => '← Précédent', :next_label => 'Suivant →'%>
+  <div style="float: right;">
+<% if is_admin? %>
+<%= link_to raw("<i class=\"glyphicon glyphicon-plus-sign\"></i> Ajouter Utilisateur"), new_user_path, {class:"btn btn-primary"} %>
+<% end %>
+  </div>
+</div>
+
+<ul class="users">
+  <%= render @users %>
+</ul>
+
+

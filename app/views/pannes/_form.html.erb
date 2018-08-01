@@ -1,0 +1,30 @@
+
+<%= form_for(@panne) do |f| %>
+  <%= render 'shared/panne_error_messages', object: @panne %>
+  <%= f.label :description %>
+  <%= f.text_area :description, class: 'form-control', :readonly => !(@action == 'new') %>
+  
+  <%= f.label 'Type de Panne' %>
+  <%= f.select(:type_panne, ['Hardware','Software','Autre'] , {} , { :class => 'form-control', :disabled => !(@action == 'new') })%>
+  
+  <%= f.label :laboratoire %>
+  <%= f.text_field :laboratoire, class: 'form-control', :readonly => !(@action == 'new') %>
+  
+  <%= f.label 'Type de Composant' %>
+  <%= f.select(:type_Composant, ['PC','Imprimante','Autre'] , {}, { :class => 'form-control',:disabled => !(@action == 'new')  }) %>
+  
+  <%= f.label :id_Composant %>
+  <%= f.text_field :id_Composant, class: 'form-control', :readonly => !(@action == 'new') %>
+  
+  <% if @action == 'edit' && is_technician?%>
+   <%= f.label 'Commentaires' %>
+   <%= f.text_area :tech_comment, class: 'form-control'%>
+ 
+  <%= f.label 'Status de Panne' %>
+  <%= f.select(:panne_status, ['Non Résolue','En Cours','Résolue'] , {}, { :class => 'form-control' })%>
+  
+  <% end %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
+

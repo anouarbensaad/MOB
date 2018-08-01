@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @panne.description %>
+</p>
+
+<p>
+  <strong>Type panne:</strong>
+  <%= @panne.type_panne %>
+</p>
+
+<p>
+  <strong>Laboratoire:</strong>
+  <%= @panne.laboratoire %>
+</p>
+
+<p>
+  <strong>Type composant:</strong>
+  <%= @panne.type_Composant %>
+</p>
+
+<p>
+  <strong>Id composant:</strong>
+  <%= @panne.id_Composant %>
+</p>
+ 
+<p>
+  <strong>Prof:</strong>
+  <%= @panne.prof.name %>
+</p>
+
+<p>
+  <strong>Technicien:</strong>
+  <% if @panne.tech_id != 1 %> <%= @panne.tech.name %> <% end %>
+</p>
+
+<p>
+  <strong>Tech comment:</strong>
+  <%= @panne.tech_comment %>
+</p>
+
+<p>
+  <strong>Panne status:</strong>
+  <% if @panne.panne_status == "Résolue" %>
+            <span class="label label-success">Résolue</span>
+          <% else %>
+            <span class="label label-danger"><%= @panne.panne_status %></span>
+  <% end %>
+</p>

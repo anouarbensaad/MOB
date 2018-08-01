@@ -1,0 +1,33 @@
+<div class="row" >
+  <%= will_paginate :previous_label => '← Précédent', :next_label => 'Suivant →'%>
+  <div style="float: right;">
+<% if is_prof? %>
+<%= link_to raw("<i class=\"glyphicon glyphicon-plus-sign\"></i> Ajouter Panne"), new_panne_path, {class:"btn btn-primary"} %>
+<br>
+<% end %>
+  </div>
+</div>
+<div class="pannes-div">
+<table class="pannes table table-hover">
+  <thead>
+    <tr>
+      <th>Identifiant</th>
+      <th>Date de Creation</th>
+      <th>Type panne</th>
+      <th>Laboratoire</th>
+      <th>Type composant</th>
+      <th>Id composant</th>
+      <th>Cree Par</th>
+      <th>Technicien</th>
+      <th>Date de Mis a jour</th>
+      <th class="center">Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @pannes %>
+  </tbody>
+</table>
+</div>
+

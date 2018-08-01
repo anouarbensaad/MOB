@@ -1,0 +1,31 @@
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', object: @user %>
+
+  <%= f.label :login %>
+  <%= f.text_field :login, class: 'form-control', :readonly => !(@action == 'new') %>
+  
+  
+
+  <%= f.label :nom %>
+  <%= f.text_field :nom, class: 'form-control' %>
+
+  <%= f.label :prenom %>
+  <%= f.text_field :prenom, class: 'form-control' %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control' %>
+
+<% if @action == 'new' || is_admin?%>
+  <%= f.label 'Type de Compte' %>
+  <%= f.select(:utype, ['Administrateur','Technicien','Professeur'] , {}, { :class => 'form-control' })  %>
+<% end %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control' %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
+

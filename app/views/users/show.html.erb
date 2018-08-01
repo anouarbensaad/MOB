@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<% provide(:title, @user.prenom) %>
+
+<div class="row">
+  <aside class="col-md-8">
+    <section class="user_info">
+      <h1>
+          <%= @user.prenom %> <%= @user.nom %>
+      </h1>
+    </section>
+  </aside>
+</div>
+<p>
+  <strong>Login:</strong>
+  <%= @user.login %>
+</p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @user.nom %>
+</p>
+
+<p>
+  <strong>Prenom:</strong>
+  <%= @user.prenom %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Type de Compte:</strong>
+  <%= @user.utype %>
+</p>

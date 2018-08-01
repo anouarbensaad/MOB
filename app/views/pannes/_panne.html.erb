@@ -1,0 +1,33 @@
+<tr>
+  <td><%= panne.id %></td>
+  <td><%= panne.created_at %></td>
+  <td><%= panne.type_panne %></td>
+  <td><%= panne.laboratoire %></td>
+  <td><%= panne.type_Composant %></td>
+  <td><%= panne.id_Composant %></td>
+  <td><%= panne.prof.name %></td>
+  <td><% if panne.tech.id != 1 %> <%= panne.tech.name %> <% end %></td>
+  <td><%= panne.updated_at %></td>
+  <td class="center">
+    <% if panne.panne_status == "Résolue" %>
+      <span class="label label-success">Résolue</span>
+    <% elsif panne.panne_status == "En Cours"%>
+      <span class="label label-warning"><%= panne.panne_status %></span>
+    <% else %>
+      <span class="label label-danger"><%= panne.panne_status %></span>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to raw("<i class=\"glyphicon glyphicon-eye-open\" title=\"Details\" data-toggle=\"tooltip\"></i>"), panne, method: :get, class:"btn btn-xs btn-success" %>
+  </td>
+  <td>
+    <% if is_technician? && panne.panne_status != "Résolue"%> 
+    <%= link_to raw("<i class=\"glyphicon glyphicon-comment\" title=\"Editer\" data-toggle=\"tooltip\"></i>"), edit_panne_path(panne), class:"btn btn-xs btn-info" %>
+    <% end %>  
+    </td>
+  <td><% if is_admin? %> 
+    <%= link_to raw("<i class=\"glyphicon glyphicon-trash\" title=\"Supprimer\" data-toggle=\"tooltip\"></i>"), panne, method: :delete, 
+                            data: { confirm: "Etes vous sure?"}, class:"btn btn-xs btn-danger"%>
+      <% end %>
+  </td>
+</tr>

@@ -1,0 +1,8 @@
+<li>
+  <%= link_to user.prenom+' '+user.nom, user %> <%= user.utype %>
+   <%= link_to raw("<i class=\"glyphicon glyphicon-pencil\" title=\"Editer\" data-toggle=\"tooltip\"></i>"), edit_user_path(user), class:"btn btn-xs btn-info" %>
+  <% if is_admin? && !current_user?(user) && user.login != 'admin' %>
+    <%= link_to raw("<i class=\"glyphicon glyphicon-trash\" title=\"Supprimer\" data-toggle=\"tooltip\"></i>"), user, method: :delete, 
+                                  data: { confirm: "Etes vous sure?"}, class:"btn btn-xs btn-danger"%>
+  <% end %>
+</li>
