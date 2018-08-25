@@ -1,17 +1,17 @@
 # Management Of Computer Breakdowns
 A project management of computer breakdowns in university with Ruby&amp;Rails (FrenchVersion)
 
-#Requirements
+## Requirements
 
 * Ruby 2.5.1
 * Rails 5.2.0
 * Mysql-server
 
-#Installation
+## Installation
 
 * Clone the repository. `git clone https://github.com/anouarbensaad/management-of-computer-breakdowns.git` and switch into the directory `cd Hmanagement-of-computer-breakdowns`
 
-#Configuration DATABASES
+## Configuration DATABASES
 
 * Create user pannes with privileges :
 
@@ -36,7 +36,7 @@ A project management of computer breakdowns in university with Ruby&amp;Rails (F
 `GRANT ALL PRIVILEGES ON pannes_test.* TO 'pannes'@'localhost' IDENTIFIED BY 'bensaad';` ,
 `FLUSH PRIVILEGES;`
 
-#upgraded & Running
+## upgraded & Running
 
 ou'll need to type this following command to resolve this:
 
@@ -51,3 +51,6 @@ Install all Package GemFile
 Running Server
 
 * `rails s`
+
+## License
+[MIT](LICENSE)
